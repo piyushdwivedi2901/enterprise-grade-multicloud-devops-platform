@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: enterprise_app
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - CLOUD_PROVIDER=Production
+      - ENVIRONMENT=Production
+      - DEBUG=False
