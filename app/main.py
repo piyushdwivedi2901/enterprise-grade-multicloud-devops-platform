@@ -7,7 +7,11 @@ app = Flask(__name__)
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
+
+)
+
 )
 
 @app.route("/")
@@ -28,9 +32,12 @@ def metrics():
 
 @app.route("/cloud")
 def cloud():
+    logging.info(f"Cloud endpoint accessed - Provider: {Config.CLOUD_PROVIDER}")
     return jsonify({
         "cloud": Config.CLOUD_PROVIDER,
         "environment": Config.ENVIRONMENT
+    })
+
     })
 
 if __name__ == "__main__":
